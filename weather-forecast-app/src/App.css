@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #373AF5;
+  background-image: url('./assets/Background/Academy-Weather\ forecast-Bg-buttom.png'), url('./assets/Background/Academy-Weather\ forecast-Bg-up-1.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom left, top right;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App__wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100vh;
+
+  margin: 0 auto;
+}
+
+.heade__title-body {
+  display: flex;
+  flex-direction: column;
+  width: 775px;
+  height: 212px;
+  margin: 0 auto;
+  padding: 65px 0 60px;
+}
+
+.header__h1 {
+  height: 90px;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 102px;
+  line-height: 122px;
+  color: #FFFFFF;
+}
+
+.header__h1--direction--left {
+  text-align: left;
+}
+
+.header__h1--direction--right {
+  text-align: right;
+}
+
+.main__body {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.main__item-container {
+  width: 660px;
+  height: 524px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(4, 5, 73, 0.25), 14px 14px 20px rgba(5, 6, 114, 0.2);
+  border-radius: 8px;
+  margin: 0 17px 34px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main__item-container:last-child {
+  margin: 0 17px 0 17px;
+}
+
+.item-main__wrapper {
+  width: 544px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 50px auto;
+}
+
+.item-main__title {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 32px;
+  /* identical to box height, or 100% */
+  /* Base strong */
+  color: #2C2D76;
+  margin-bottom: 32px;
+}
+
+.item-main__form {
+  width: 100%;
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.item-main__output-container {
+  align-self: center;
+}
+
+.footer {
+  align-self: center;
+}
+
+.footer__text {
+  padding-top: 43px;
+  padding-bottom: 16px;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #FFFFFF;
+  opacity: 0.6;
 }

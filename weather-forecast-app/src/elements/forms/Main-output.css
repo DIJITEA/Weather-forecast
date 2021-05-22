@@ -1,0 +1,36 @@
+.default__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.default{
+    display: none;
+}
+.weather-block__container{
+    display: flex;
+    justify-content: center;
+    width: 610px;
+    height: 238px;
+    background-color: black;
+}
+.weather-block__arrow-left{
+    width: 24px;
+}
+.weather-block__arrow-right{
+    width: 24px;
+    transform: rotate(180deg);
+}
+.weather-block__items-container{
+    display: flex;
+    justify-content: space-between;
+    width: 542px;
+    height: 100%;
+    background-color: blanchedalmond;
+    overflow: hidden;
+}
+
+.weather-block__item{
+    width: 174px;
+    height: 238px;
+    background-color: cornflowerblue;
+}
