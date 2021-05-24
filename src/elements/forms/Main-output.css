@@ -129,6 +129,7 @@
         display: none;
     }
     .weather-block__container {
+        width: 100%;
         overflow: hidden;
     }
     .weather-block__output-container {

@@ -9,6 +9,8 @@ button {
 
 .select {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .select__header-container {
@@ -45,7 +47,7 @@ button {
     z-index: 1;
     overflow: scroll;
     overflow-x: hidden;
-    margin-top: 12px;
+    margin-top: 60px;
     width: 252px;
     height: 0px;
     background: #FFFFFF;
