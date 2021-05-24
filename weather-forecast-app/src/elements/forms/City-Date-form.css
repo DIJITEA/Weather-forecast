@@ -6,6 +6,12 @@ button {
     background-color: transparent;
     cursor: pointer;
 }
+.form {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
 
 .select__header-container {
     display: flex;
@@ -77,19 +83,14 @@ button {
     line-height: 24px;
 }
 
-::-webkit-scrollbar {
-    opacity: 0.4;
-    width: 4px;
-    height: 28px;
-}
-
-::-webkit-scrollbar-track {
-    opacity: 0.4;
-    border-radius: 38px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #8083A4;
-    opacity: 0.4;
-    border-radius: 38px;
+@media only screen and (max-width: 577px) {
+    .form {
+        flex-direction: column;
+    }
+    .select__header-container{
+        margin: 0 auto;
+    }
+    .form__input-date{
+        margin: 24px auto 0;
+    }
 }

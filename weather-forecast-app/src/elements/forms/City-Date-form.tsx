@@ -1,16 +1,19 @@
 import React from 'react'
 import Arrow from '../../assets/icons/16/chevron-bottom.svg'
-import './City-form.css'
+import './City-Date-form.css'
 interface CityFormProps {
   city: string;
-  test?: any;
+  sendPrev?: any;
 }
 interface CityFormState {
   city: string;
   iconActive: string;
   bodyActive: string;
   liActive: string;
-  test?: any;
+  sendPrev?: any;
+  time?:any;
+  e?: any;
+  item?: any;
 }
 const WeatherApiKey = 'd511c25aa2df6ef291f23303b36bbcb2'
 const items = [
@@ -46,20 +49,41 @@ const items = [
   }
 ]
 
-class CityForm extends React.Component<CityFormProps, CityFormState> {
+const itemTimeData = {
+  lat: 0,
+  lon: 0,
+  time: 0
+}
+
+class CityDateForm extends React.Component<CityFormProps, CityFormState> {
   constructor (props: CityFormProps) {
     super(props)
-    this.state = { city: 'Select city', iconActive: '', bodyActive: '', liActive: '', test: this.props.test }
+    this.state = { city: 'Select city', iconActive: '', bodyActive: '', liActive: '', time: 0, e: 0, item: 0, sendPrev: this.props.sendPrev }
   }
 
-  CityState = async (e?: any, item?: any) => {
+  setTime = (e?: any) => {
+    const date = new Date(e.target.value).getTime() / 1000
+    itemTimeData.time = date
+    this.setState({ time: date })
+    this.CityState()
+  }
+
+  CityStateSet = async (e?: any, item?: any) => {
     e.preventDefault()
-    const apiUrl = await
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${item.lat}&lon=${item.lon}&units=metric&exclude=current&appid=${WeatherApiKey}`)
-    const data = await apiUrl.json()
+    itemTimeData.lat = item.lat
+    itemTimeData.lon = item.lon
     this.setState({ city: item.value })
-    this.state.test(data)
     this.CityOpen()
+    this.CityState()
+  }
+
+  CityState = async () => {
+    if (itemTimeData.lat !== 0 && itemTimeData.time !== 0) {
+      const apiUrl = await
+      fetch(`https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${itemTimeData.lat}&lon=${itemTimeData.lon}&units=metric&dt=${itemTimeData.time}&appid=${WeatherApiKey}`)
+      const data = await apiUrl.json()
+      this.state.sendPrev(data)
+    }
   }
 
   CityOpen = (): void => {
@@ -71,7 +95,7 @@ class CityForm extends React.Component<CityFormProps, CityFormState> {
   }
 
   render = () => (
-    <form>
+    <form className="form">
       <div className="select">
         <div className="select__header-container"
           onClick={() => this.CityOpen()}
@@ -82,16 +106,19 @@ class CityForm extends React.Component<CityFormProps, CityFormState> {
         <ul className={'select__body' + ' ' + this.state.bodyActive}>
           {items.map(item => (
             <li key={item.id}>
-              <button className="select__li-button" type="button" onClick={ (e) => this.CityState(e, item)}>
+              <button className="select__li-button" type="button" onClick={ (e) => this.CityStateSet(e, item)}>
                 <span className="select__li-span">{item.value}</span>
               </button>
             </li>
           ))}
         </ul>
       </div>
+      <div className="form__input-date">
+          <input id="date" type="date" onChange={ (e) => this.setTime(e)}></input>
+     </div>
 
     </form>
   )
 }
 
-export default CityForm
+export default CityDateForm

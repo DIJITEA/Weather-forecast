@@ -16,7 +16,7 @@ body {
   flex-wrap: nowrap;
   justify-content: space-between;
   height: 100vh;
-
+  overflow: hidden;
   margin: 0 auto;
 }
 
@@ -113,4 +113,44 @@ body {
   line-height: 18px;
   color: #FFFFFF;
   opacity: 0.6;
+}
+
+@media only screen and (max-width: 1389px) {
+  .App__wrapper {
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and (max-width: 813px) {
+  .heade__title-body {
+    width: 90%;
+  }
+  .main__item-container {
+    width: 90%;
+  }
+  .item-main__wrapper {
+    width: 90%;
+    align-items: center;
+  }
+  .item-main__form {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 577px) {
+  .main__item-container {
+    width: 90%;
+    height: 576px;
+  }
+}
+
+@media only screen and (max-width: 466px) {
+  .heade__title-body {
+    width: 232px;
+    height: 64px;
+  }
+  .header__h1 {
+    font-size: 32px;
+    line-height: 32px;
+  }
 }
