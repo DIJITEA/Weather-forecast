@@ -25,9 +25,7 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   weatherDataRender = (data?: any) => {
-    // weatherData = data
     this.setState({ weatherDataTest: data })
-    // console.log(weatherData)
   }
 
   sendPrev = (data?:any) => {

@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# Weather forecast
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Структура
 
-## Available Scripts
+Проект состоит из четырех уникальных компонентов 
 
-In the project directory, you can run:
+### `<CityForm />`
+ Включает в себя массив городов и их координаты с помощью которых формируется запрос к API, который в свою очередь возвращает массив в JSON формате. 
+ После чего данный JSON отправляется в родительский компонент.
+### `<MainOutput />`
+ Принимает в себя JSON и обрабатывает данные на основе собственных элементов отрендеренных через собственный массив присваивая данным элементам дату и температуру полученные из JSON
+### `<CityDateForm />`
+ Компонент основанный на элементе CityForm за исключением того что делает другой API запрос с использованием даты, который получает из элемента input
+### `<MainOutputPast />`
+ Обробатывает JSON полученный из компонента CityDateForm
 
-### `yarn start`
+## Сомнения
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ 1. структурировании HTML состовляющей: возможно излишнее количество оберток
+ 2. излишнее количество переменных и некоторые 'state' просто ужасны (конкретно 'elementDate' в MainOutput)
+ 3. вызов функции в том же MainOutput на 96-ой строке сильно смущает
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Не реализованный вещи
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 1. Продублировал много css классов из-за собственной ошибки
+ 2. Из-за продублированных классов и нехватки времени вместо того чтобы переписать HTML и css составляющие пришлось использовать различного рода костыли, это можно наглядно увидеть на примере слайдера в компоненте MainOutput
+ 3. Не реализовал иконки погоды :c
