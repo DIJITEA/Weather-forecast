@@ -1,4 +1,5 @@
 {
+  "homepage": "http://DIJITEA.github.io/Weather-forecast/weather-forecast-app",
   "name": "weather-forecast-app",
   "version": "0.1.0",
   "private": true,
@@ -18,6 +19,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -49,6 +52,7 @@
     "eslint-plugin-import": "^2.23.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.23.2"
+    "eslint-plugin-react": "^7.23.2",
+    "gh-pages": "^3.1.0"
   }
 }
