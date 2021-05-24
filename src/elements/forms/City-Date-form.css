@@ -42,24 +42,12 @@ button {
     transform: rotate(180deg);
 }
 
-.select__body {
-    position: absolute;
-    overflow: scroll;
-    overflow-x: hidden;
-    margin-top: 12px;
-    width: 252px;
-    height: 0px;
-    background: #FFFFFF;
-    box-sizing: border-box;
-    border-radius: 8px;
-    transition: height 0.2s, box-shadow 0.2s;
-}
 
 .select__body--active {
     height: 160px;
     border: 2px solid rgba(128, 131, 164, 0.06);
     box-shadow: 0px 2px 4px rgba(4, 5, 73, 0.16), 14px 14px 20px rgba(5, 6, 114, 0.08);
-    z-index: 1;
+    z-index: 3;
 }
 
 .select__body-item--active {

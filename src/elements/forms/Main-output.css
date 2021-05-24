@@ -7,9 +7,11 @@
 .default--nonactive {
     display: none;
 }
-.weather-block--non-active{
+
+.weather-block--non-active {
     display: none;
 }
+
 .weather-block__container {
     display: flex;
     justify-content: center;
@@ -117,4 +119,23 @@
     font-size: 32px;
     line-height: 32px;
     color: #FFFFFF;
+}
+
+@media only screen and (max-width: 700px) {
+    .weather-block__arrow-left {
+        display: none;
+    }
+    .weather-block__arrow-right {
+        display: none;
+    }
+    .weather-block__container {
+        overflow: hidden;
+    }
+    .weather-block__output-container {
+        width: 100%;
+        overflow: scroll;
+    }
+    .item-main__output-container {
+        width: 100%;
+    }
 }

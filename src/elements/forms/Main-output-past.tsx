@@ -64,7 +64,7 @@ class MainOutputPast extends React.Component<WeatherElProps, WeatherElState> {
                 </div>
             </div>
             <div className={'weather-block' + ' ' + this.state.display.weatherDisplay}>
-                <div className="weather-block__container">
+                <div className="weather-block__container-for-single">
                         <div className="weather-block__output-container">
                              <form className="weather-block__item" >
                                  {this.weatherOutput()}
